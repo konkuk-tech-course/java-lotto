@@ -47,7 +47,7 @@ public class Controller {
         publish = new Publish(count);
         List<List<Integer>> list = publish.publishNumbers(count);
         output.printLottos(list);
-
+//ghjkl;'
         output.printLottoNumber();
         String lottos = lottoInput.inputNumbers();
         List<Integer> inputLottos = lottoInput.parseInt(lottos);
