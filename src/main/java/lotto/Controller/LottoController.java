@@ -1,5 +1,11 @@
 package lotto.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import lotto.Lotto;
+import lotto.domain.AutoLotto;
+import lotto.domain.Calculated;
+import lotto.domain.RankLogic;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -7,6 +13,11 @@ public class LottoController {
 
     InputView inputView;
     OutputView outputView;
+    Calculated calculated = new Calculated();
+    AutoLotto autoLotto = new AutoLotto();
+    RankLogic rankLogic = new RankLogic();
+    List<Integer> winningLottoTicket = new ArrayList<>();
+    int bonusNumber;
 
     public LottoController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -14,6 +25,15 @@ public class LottoController {
     }
 
     public void run() {
-        inputView.payMoney();
+        int userMoney = inputView.payMoney();
+        List<Lotto> autoLottos = autoLotto.pickAutoLotto(calculated.lottoAmount(userMoney));
+        winningLottoTicket = inputView.winningLottoTicket();
+        int bonus = inputView.bonusNumber();
+        rankLogic.matchCount(autoLottos, winningLottoTicket, bonus);
+
+    }
+
+    public List<Integer> getWinningLottoTicket() {
+        return winningLottoTicket;
     }
 }
