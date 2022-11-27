@@ -10,7 +10,7 @@ public class ViewValidator {
         if (isEmpty(input)) {
             throw new IllegalArgumentException(ViewErrorMessage.EMPTY.get());
         }
-        
+
         if (isNumber(input)) {
             throw new IllegalArgumentException(ViewErrorMessage.NOT_NUMBER.get());
         }
