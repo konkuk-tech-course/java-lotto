@@ -39,7 +39,6 @@ public class RankLogic {
     }
 
 
-
     private void setMap(){
         rankMap.put(Ranking.RANK_NONE, 0);
         rankMap.put(Ranking.RANK_5,0);

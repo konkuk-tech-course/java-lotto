@@ -32,7 +32,7 @@ public class InputView {
         return validate.getConvertedUserMoney();
     }
 
-    public List<Integer> winningLottoTicket() { // 역할 분리 꼭 해야됨
+    public List<Integer> winningLottoTicket() {
         outputView.printInputWinningLottoTicket();
         try {
             String winningLotto = Console.readLine();
@@ -45,12 +45,11 @@ public class InputView {
     }
 
 
-
     public int bonusNumber() {
+        outputView.printBonusNumber();
         try{
             String bonus = Console.readLine();
-            bonusNum = Integer.parseInt(bonus);
-            bonusNumber.validate(bonusNum);
+            bonusNum = bonusNumber.validate(bonus);
         }catch (IllegalArgumentException e){
             outputView.printError(e.getMessage());
             return bonusNumber();

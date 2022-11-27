@@ -26,7 +26,6 @@ public enum Ranking {
     }
 
 
-
     private int same;
     private int rankMoney;
 

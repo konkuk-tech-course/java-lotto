@@ -10,9 +10,10 @@ public class WinningLotto {
     Validate validate = new Validate();
 
 
-    List<Integer> winningLottos = new ArrayList<>();
+    static List<Integer> winningLottos = new ArrayList<>();
 
     public List<Integer> settingWinningLottos(String winningLotto) {
+        initWinningLottos();
         List<String> strings = Arrays.asList(winningLotto.split(","));
         for(int i=0; i<strings.size(); i++){
             int rightNumber = validate.validateNumber(strings.get(i));
@@ -21,11 +22,12 @@ public class WinningLotto {
         Lotto lotto = new Lotto(winningLottos);
         return winningLottos;
     }
-    public List<Integer> getWinningLottos() {
-        return winningLottos;
+
+    private void initWinningLottos() {
+        winningLottos.clear();
     }
 
-
-
-
+    public static List<Integer> getWinningLottos() {
+        return winningLottos;
+    }
 }

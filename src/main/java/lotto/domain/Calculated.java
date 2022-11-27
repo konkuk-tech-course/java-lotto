@@ -2,13 +2,16 @@ package lotto.domain;
 
 import java.util.Map;
 import lotto.rank.Ranking;
+import lotto.view.OutputView;
 
 public class Calculated {
 
     private final int THOUSAND=1000;
+    OutputView outputView = new OutputView();
 
-    double yield=0;
+    static double yield=0;
     public int lottoAmount(int userMoney){
+        outputView.printAmount(userMoney/THOUSAND);
         return userMoney/THOUSAND;
     }
 
@@ -19,7 +22,9 @@ public class Calculated {
         }
         yield = (double)sum/userMoney * 100;
         return yield;
-
     }
 
+    public static double getYield() {
+        return yield;
+    }
 }

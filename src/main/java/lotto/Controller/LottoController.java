@@ -30,7 +30,7 @@ public class LottoController {
         winningLottoTicket = inputView.winningLottoTicket();
         int bonus = inputView.bonusNumber();
         rankLogic.logicStart(autoLottos, winningLottoTicket, bonus);
-        calculated.calculateYield(userMoney,RankLogic.rankMap);
+        OutputView.printStatisTics(calculated.calculateYield(userMoney,RankLogic.rankMap));
     }
 
     public static List<Integer> getWinningLottoTicket() {
