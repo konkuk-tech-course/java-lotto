@@ -25,4 +25,3 @@
 - 잘못된 값 입력 시 IllegalArgumentException 발생. 에러 문구는 "[ERROR]"로 시작
 - 1000원 미만
 - 1000원으로 나누어 떨어지지 않는 금액
-- 
