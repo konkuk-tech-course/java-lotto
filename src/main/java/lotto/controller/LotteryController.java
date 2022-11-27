@@ -2,6 +2,7 @@ package lotto.controller;
 
 import lotto.domain.Money;
 import lotto.domain.User;
+import lotto.service.LotteryService;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -10,6 +11,7 @@ import java.util.function.Supplier;
 public class LotteryController {
     private static final InputView inputView = InputView.getInstance();
     private static final OutputView outputView = OutputView.getInstance();
+    private static final LotteryService lotteryService = LotteryService.getInstance();
 
     private static LotteryController instance = new LotteryController();
 
@@ -33,5 +35,11 @@ public class LotteryController {
             outputView.printErrorMessage(e.getMessage());
             return requestNumberInput(supplier);
         }
+    }
+
+    public User purchaseTicket(User user) {
+        lotteryService.sellTickets(user);
+        outputView.printPurchasedTickets(user.createTicketsInfo());
+        return user;
     }
 }
