@@ -26,6 +26,12 @@ public class User {
         return money.getMoney() > Status.EMPTY.get();
     }
 
+    public List<List<Integer>> createTicketsInfo() {
+        List<List<Integer>> info = new ArrayList<>();
+        tickets.forEach(ticket -> info.add(ticket.getNumbers()));
+        return info;
+    }
+
     public int getNumberOfTickets() {
         return tickets.size();
     }
