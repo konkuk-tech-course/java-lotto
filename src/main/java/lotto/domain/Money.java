@@ -19,4 +19,8 @@ public class Money {
             throw new IllegalArgumentException(DomainErrorMessage.INVALID_UNIT.get());
         }
     }
+
+    public int getMoney() {
+        return money;
+    }
 }
