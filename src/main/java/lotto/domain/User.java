@@ -26,6 +26,10 @@ public class User {
         return money.getMoney() > Status.EMPTY.get();
     }
 
+    public int getNumberOfTickets() {
+        return tickets.size();
+    }
+
     public String getId() {
         return id;
     }
