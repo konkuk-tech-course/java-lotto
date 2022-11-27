@@ -1,10 +1,13 @@
 package lotto.domain;
 
+import lotto.constant.LotteryProperties;
 import lotto.domain.constant.LottoNumberProperties;
 
 import java.util.List;
 
 public class DomainValidator {
+    private static final int EMPTY = 0;
+
     public static boolean isIncorrectSize(List<Integer> numbers) {
         return numbers.size() != LottoNumberProperties.SIZE.get();
 
@@ -21,5 +24,13 @@ public class DomainValidator {
 
     public static boolean hasSameNumber(List<Integer> numbers, int correctSize) {
         return numbers.stream().distinct().count() != correctSize;
+    }
+
+    public static boolean isMoneyZero(int money) {
+        return money == EMPTY;
+    }
+
+    public static boolean isMultiplyOfCorrectUnit(int money) {
+        return money % LotteryProperties.PRICE.get() == EMPTY;
     }
 }
