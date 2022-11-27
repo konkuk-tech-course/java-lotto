@@ -20,6 +20,10 @@ public class Money {
         }
     }
 
+    public void decreaseMoneyByUnit(int unit) {
+        money -= unit;
+    }
+
     public int getMoney() {
         return money;
     }
