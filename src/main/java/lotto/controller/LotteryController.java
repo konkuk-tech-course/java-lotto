@@ -1,8 +1,16 @@
 package lotto.controller;
 
+import lotto.domain.Money;
+import lotto.domain.User;
 import lotto.view.InputView;
+import lotto.view.OutputView;
+
+import java.util.function.Supplier;
 
 public class LotteryController {
+    private static final InputView inputView = InputView.getInstance();
+    private static final OutputView outputView = OutputView.getInstance();
+
     private static LotteryController instance = new LotteryController();
 
     private LotteryController() {
@@ -10,5 +18,20 @@ public class LotteryController {
 
     public static LotteryController getInstance() {
         return instance;
+    }
+
+    public User createUser() {
+        int moneyInput = requestNumberInput(inputView::readMoney);
+        Money money = new Money(moneyInput);
+        return new User("id", money);
+    }
+
+    private int requestNumberInput(Supplier<Integer> supplier) {
+        try {
+            return supplier.get();
+        } catch (IllegalArgumentException e){
+            outputView.printErrorMessage(e.getMessage());
+            return requestNumberInput(supplier);
+        }
     }
 }
