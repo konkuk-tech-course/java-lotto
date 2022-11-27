@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.constant.LotteryProperties;
 import lotto.constant.Status;
 
 import java.util.ArrayList;
@@ -14,6 +15,11 @@ public class User {
         this.id = id;
         this.money = money;
         tickets = new ArrayList<>();
+    }
+
+    public void buyTicket(Lotto ticket) {
+        money.decreaseMoneyByUnit(LotteryProperties.PRICE.get());
+        tickets.add(ticket);
     }
 
     public boolean hasMoney() {
