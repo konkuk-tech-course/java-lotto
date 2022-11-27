@@ -8,7 +8,10 @@ import lotto.rank.Ranking;
 
 public class RankLogic {
 
+    private final int BONUS=7;
+    private final int RANK_3=5;
     public static Map<Ranking, Integer> rankMap= new HashMap<Ranking,Integer>();
+
 
     public void logicStart(List<Lotto> lottoList, List<Integer> winningNumber, int bonus){
         setMap();
@@ -16,11 +19,11 @@ public class RankLogic {
     }
 
     public void matchCount(List<Lotto> lottoList, List<Integer> winningNumber, int bonus) {
-        for(int i=0; i< lottoList.size(); i++){
-            long count = lottoList.get(i).getNumbers().stream()
+        for(int index=0; index< lottoList.size(); index++){
+            long count = lottoList.get(index).getNumbers().stream()
                 .filter(auttoLotto -> winningNumber.contains(auttoLotto)).count();
-            if(count==5){
-                count=hasBonus(lottoList,i, bonus);
+            if(count==RANK_3){
+                count=hasBonus(lottoList,index, bonus);
             }
             updateRanking(count);
         }
@@ -33,9 +36,9 @@ public class RankLogic {
 
     private int hasBonus(List<Lotto> lottoList, int index, int bonus){
         if(lottoList.get(index).getNumbers().stream().anyMatch(num -> num==bonus)){
-            return 7;
+            return BONUS;
         }
-        return 5;
+        return RANK_3;
     }
 
 

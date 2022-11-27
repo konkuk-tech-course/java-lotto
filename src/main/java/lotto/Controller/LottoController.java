@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lotto.service.Lotto;
 import lotto.domain.AutoLotto;
-import lotto.domain.Calculated;
+import lotto.service.Calculated;
 import lotto.domain.RankLogic;
 import lotto.view.InputView;
 import lotto.view.OutputView;

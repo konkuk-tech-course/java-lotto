@@ -12,7 +12,7 @@ public class AutoLotto {
     public static List<Lotto> autoLottos = new ArrayList<>();
     OutputView outputView = new OutputView();
     public List<Lotto> pickAutoLotto(int lottoAmount){
-        for(int i=0; i<lottoAmount; i++){
+        for(int index=0; index<lottoAmount; index++){
             List<Integer> pickLotto = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
             Collections.sort(pickLotto);
             Lotto lotto = new Lotto(pickLotto);
