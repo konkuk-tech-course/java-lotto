@@ -13,7 +13,7 @@ public class InputView {
      * 사용자의 금액을 입력받는다
      */
     public static String requestInputMoney(){
-        System.out.println(InputMessage.REQUEST_INPUT_MONEY);
+        System.out.println(InputMessage.REQUEST_INPUT_MONEY.get());
         return readLine();
     }
 
@@ -21,7 +21,7 @@ public class InputView {
      * 사용자의 로또 번호를 입력 받는다
      */
     public static String requestInputLottoNumber(){
-        System.out.println(InputMessage.REQUEST_INPUT_LOTTO_NUMBER);
+        System.out.println(InputMessage.REQUEST_INPUT_LOTTO_NUMBER.get());
         return readLine();
     }
 
@@ -29,7 +29,7 @@ public class InputView {
      * 사용자의 보너스 번호를 입력 받는다
      */
     public static String requestInputBonusNumber(){
-        System.out.println(InputMessage.REQUEST_BONUS_NUMBER);
+        System.out.println(InputMessage.REQUEST_BONUS_NUMBER.get());
         return readLine();
     }
 
