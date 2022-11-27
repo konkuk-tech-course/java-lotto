@@ -1,18 +1,34 @@
 package lotto.domain;
 
 import lotto.constant.LotteryRank;
+import lotto.constant.Status;
+import org.assertj.core.groups.Tuple;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LotteryResult {
+    private static final int INCREASE_UNIT = 1;
+
     private String userId;
     private Map<LotteryRank, Integer> results;
 
     public LotteryResult(String userId) {
         this.userId = userId;
         results = new HashMap<>();
+        initResults();
+    }
+
+    private void initResults() {
+        Arrays.stream(LotteryRank.values())
+                .forEach(rank -> results.put(rank, Status.EMPTY.get()));
+    }
+
+    public void add(LotteryRank rank) {
+        results.put(rank, results.get(rank) + INCREASE_UNIT);
     }
 
     public Map<LotteryRank, Integer> getResults() {
