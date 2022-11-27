@@ -22,7 +22,7 @@ public class Lotto {
             throw new IllegalArgumentException(DomainErrorMessage.INVALID_RANGE.get());
         }
 
-        if (DomainValidator.hasSameNumber(numbers)) {
+        if (DomainValidator.hasSameNumber(numbers, LottoProperties.SIZE.get())) {
             throw new IllegalArgumentException(DomainErrorMessage.DUPLICATED_NUMBERS.get());
         }
     }

@@ -19,7 +19,7 @@ public class DomainValidator {
                 && number > LottoProperties.MAX_NUMBER.get();
     }
 
-    public static boolean hasSameNumber(List<Integer> numbers) {
-        return numbers.stream().distinct().count() != LottoProperties.SIZE.get();
+    public static boolean hasSameNumber(List<Integer> numbers, int correctSize) {
+        return numbers.stream().distinct().count() != correctSize;
     }
 }
