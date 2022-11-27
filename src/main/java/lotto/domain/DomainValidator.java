@@ -16,7 +16,7 @@ public class DomainValidator {
 
     public static boolean isInvalidRange(int number) {
         return number < LottoProperties.MIN_NUMBER.get()
-                && number > LottoProperties.MAX_NUMBER.get();
+                || number > LottoProperties.MAX_NUMBER.get();
     }
 
     public static boolean hasSameNumber(List<Integer> numbers, int correctSize) {
