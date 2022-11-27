@@ -1,11 +1,11 @@
 package lotto.model;// @ author ninaaano
 
 import lotto.model.constant.InputValidMessage;
+import lotto.view.InputView;
+import lotto.model.Lotto;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static lotto.model.constant.CommonCostants.IS_NUMBER;
 import static lotto.model.constant.CommonCostants.MIN_LOTTO_PRICE;
@@ -18,34 +18,54 @@ public class InputValidator {
     /**
      * 입력받은 로또 번호 유효성 검사
      */
-    public static boolean isValidNumber(String inputNumber){
+    public static List<Integer> isValidNumber() {
+        List<Integer> winningNumber = new ArrayList<>();
         try {
-            isCheckNumber(inputNumber);
-            int number = Integer.parseInt(inputNumber);
-            validateLottoNumber(number);
-            return true;
-        }catch (IllegalArgumentException e) {
-            System.out.println(InputValidMessage.INPUT_NUMBER_ERROR);
-            return false;
+            //isCheckNumber(inputNumber);
+            //int number = Integer.parseInt(inputNumber);
+            //validateLottoNumber(number);
+            String input = InputView.requestInputLottoNumber();
+            winningNumber = Arrays.stream(input.split(","))
+                    .map(Integer::parseInt).collect(Collectors.toList());
+        } catch (IllegalArgumentException e) {
+            //System.out.println(InputValidMessage.INPUT_NUMBER_ERROR.get());
+            throw new IllegalArgumentException(InputValidMessage.AMOUNT_RANGE.get());
         }
+        return winningNumber;
     }
 
     public static void validateLottoNumber(int number) {
-        if(!checkRange(number)) {
+        if (!checkRange(number)) {
             System.out.println("로또 번호는 1 ~ 45 사이의 번호여야 합니다.");
             throw new IllegalArgumentException(InputValidMessage.AMOUNT_RANGE.get());
         }
     }
-    public static boolean checkRange(int number){
+
+    public static boolean checkRange(int number) {
         return number >= 1 && number <= 45;
     }
 
-    public static void isValidBonusNumber(Lotto lottoNumber, int bonusNumber){
-        if(lottoNumber.contains(bonusNumber)){
+    public static int isValidBonusNumber() {
+        int bonusNumber = 0;
+        try {
+            bonusNumber = Integer.parseInt(InputView.requestInputBonusNumber());
+            // validateDuplicates(Lotto lotto,bonusNumber);
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(InputValidMessage.REDUPLICATION.get());
         }
-
+        return bonusNumber;
     }
+
+    public static void validateDuplicates(Lotto lotteryNumbers, int bonusNumber) {
+        if (lotteryNumbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException(InputValidMessage.REDUPLICATION.get());
+        }
+    }
+
+
+
+
+
 
     /**
      * 로또 번호 검사
@@ -72,16 +92,16 @@ public class InputValidator {
      * @return
      */
 
-    public static boolean isValidMoney(String inputMoney){
+    public static int isValidMoney(String inputMoney){
+        int money = Integer.parseInt(inputMoney);
         try {
             isCheckNumber(inputMoney);
-            int money = Integer.parseInt(inputMoney);
             amoutRange(money);
-            return true;
+            return money;
         }catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return false;
         }
+        return Integer.parseInt(InputView.requestInputMoney());
     }
 
     private static void amoutRange(int money) throws IllegalArgumentException{
