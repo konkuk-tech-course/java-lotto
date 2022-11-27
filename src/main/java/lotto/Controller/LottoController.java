@@ -2,7 +2,7 @@ package lotto.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import lotto.Lotto;
+import lotto.service.Lotto;
 import lotto.domain.AutoLotto;
 import lotto.domain.Calculated;
 import lotto.domain.RankLogic;
@@ -17,7 +17,6 @@ public class LottoController {
     AutoLotto autoLotto = new AutoLotto();
     RankLogic rankLogic = new RankLogic();
     static List<Integer> winningLottoTicket = new ArrayList<>();
-    int bonusNumber;
 
     public LottoController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -33,7 +32,4 @@ public class LottoController {
         OutputView.printStatisTics(calculated.calculateYield(userMoney,RankLogic.rankMap));
     }
 
-    public static List<Integer> getWinningLottoTicket() {
-        return winningLottoTicket;
-    }
 }

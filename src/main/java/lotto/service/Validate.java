@@ -1,4 +1,6 @@
-package lotto.domain;
+package lotto.service;
+
+import lotto.constant.GameException;
 
 public class Validate {
 
@@ -17,14 +19,14 @@ public class Validate {
         try {
              convertedUserMoney = Integer.parseInt(userMoney);
         }catch (Exception e){
-            throw new IllegalArgumentException("[ERROR] 사용자의 금액은 숫자로만 입력될 수 있습니다. ");
+            throw new IllegalArgumentException(GameException.ERROR_USER_MONEY.message());
         }
         return convertedUserMoney;
     }
 
     private static void validateThousandUnit(int convertedUserMoney) {
         if(convertedUserMoney % 1000 >0){
-            throw new IllegalArgumentException("[ERROR] 사용자의 금액은 1000원 단위로만 올 수 있습니다.");
+            throw new IllegalArgumentException(GameException.ERROR_USER_MONEY_UNIT.message());
         }
     }
 
@@ -33,7 +35,7 @@ public class Validate {
         try{
             convertNumber = Integer.parseInt(number);
         }catch (Exception e){
-            throw new IllegalArgumentException("[ERROR] 로또 번호에는 숫자 형태로만 올 수 있습니다.");
+            throw new IllegalArgumentException(GameException.ERROR_LOTTO_NUMBER.message());
         }
         return convertNumber;
     }

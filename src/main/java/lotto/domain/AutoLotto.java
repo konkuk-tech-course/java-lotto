@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import lotto.Lotto;
+import lotto.service.Lotto;
 import lotto.view.OutputView;
 
 public class AutoLotto {

@@ -3,7 +3,7 @@ package lotto.domain;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lotto.Lotto;
+import lotto.service.Lotto;
 import lotto.rank.Ranking;
 
 public class RankLogic {

@@ -2,11 +2,9 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import lotto.Lotto;
-import lotto.domain.BonusNumber;
-import lotto.domain.Validate;
+import lotto.service.BonusNumber;
+import lotto.service.Validate;
 import lotto.domain.WinningLotto;
 
 public class InputView {

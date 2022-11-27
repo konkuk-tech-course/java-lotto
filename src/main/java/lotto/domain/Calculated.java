@@ -24,7 +24,4 @@ public class Calculated {
         return yield;
     }
 
-    public static double getYield() {
-        return yield;
-    }
 }

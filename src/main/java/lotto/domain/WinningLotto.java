@@ -3,7 +3,8 @@ package lotto.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import lotto.Lotto;
+import lotto.service.Lotto;
+import lotto.service.Validate;
 
 public class WinningLotto {
 

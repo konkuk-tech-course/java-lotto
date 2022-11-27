@@ -1,7 +1,6 @@
-package lotto.domain;
-
-import java.util.List;
-import lotto.Controller.LottoController;
+package lotto.service;
+import lotto.constant.GameException;
+import lotto.domain.WinningLotto;
 
 public class BonusNumber {
 
@@ -18,20 +17,20 @@ public class BonusNumber {
         try{
              bonus= Integer.parseInt(bonusNumber);
         }catch (IllegalArgumentException e){
-            throw new IllegalArgumentException("[ERROR] 보너스 번호에서는 숫자가 와야합니다.");
+            throw new IllegalArgumentException(GameException.ERROR_BONUS_NUMBER.message());
         }
         return bonus;
     }
 
     private void validateDuplicated(int bonusNumber) {
         if (WinningLotto.getWinningLottos().contains(bonusNumber)) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호에서는 중복된 숫자가 올 수 없습니다.");
+            throw new IllegalArgumentException(GameException.ERROR_BONUS_DUPLICATE.message());
         }
     }
 
     private void validateInRange(int bonusNumber) {
         if (1 > bonusNumber || 45 < bonusNumber) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호에서의 숫자 범위는 1-45사이입니다.");
+            throw new IllegalArgumentException(GameException.ERROR_BONUS_RANGE.message());
         }
     }
 
