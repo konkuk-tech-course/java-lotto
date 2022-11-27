@@ -64,7 +64,7 @@ public class Controller {
         String bonusInput = bonusNumber.inputNumbers();
         int inputBonus = bonusNumber.parseInt(bonusInput);
 
-        bonus = new BonusNumber(inputBonus);
+        bonus = new BonusNumber(inputBonus,inputLottos);
 
         Map<Integer, Integer> map = matchNumbers.calculateRank(list, lotto.getNumbers(), bonus.getBonusNumber());
         int sum = profitRate.calculateTotalProfit(map);

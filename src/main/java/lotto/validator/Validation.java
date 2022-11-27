@@ -1,5 +1,7 @@
 package lotto.validator;
 
+import lotto.constant.ExceptionPhrase;
+
 import java.util.NoSuchElementException;
 
 public class Validation {
@@ -8,7 +10,7 @@ public class Validation {
         try{
             Integer.parseInt(number);
         } catch (NumberFormatException | NoSuchElementException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionPhrase.문자금지.getMessage());
         }
     }
 
