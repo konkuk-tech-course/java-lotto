@@ -3,6 +3,7 @@ package lotto.domain;
 import lotto.domain.constant.DomainErrorMessage;
 import lotto.domain.constant.LottoProperties;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
@@ -25,5 +26,9 @@ public class Lotto {
         if (DomainValidator.hasSameNumber(numbers, LottoProperties.SIZE.get())) {
             throw new IllegalArgumentException(DomainErrorMessage.DUPLICATED_NUMBERS.get());
         }
+    }
+
+    public List<Integer> getNumbers() {
+        return Collections.unmodifiableList(numbers);
     }
 }
