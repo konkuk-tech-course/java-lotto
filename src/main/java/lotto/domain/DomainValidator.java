@@ -1,12 +1,12 @@
 package lotto.domain;
 
-import lotto.domain.constant.LottoProperties;
+import lotto.domain.constant.LottoNumberProperties;
 
 import java.util.List;
 
 public class DomainValidator {
     public static boolean isIncorrectSize(List<Integer> numbers) {
-        return numbers.size() != LottoProperties.SIZE.get();
+        return numbers.size() != LottoNumberProperties.SIZE.get();
 
     }
 
@@ -15,8 +15,8 @@ public class DomainValidator {
     }
 
     public static boolean isInvalidRange(int number) {
-        return number < LottoProperties.MIN_NUMBER.get()
-                || number > LottoProperties.MAX_NUMBER.get();
+        return number < LottoNumberProperties.MIN_NUMBER.get()
+                || number > LottoNumberProperties.MAX_NUMBER.get();
     }
 
     public static boolean hasSameNumber(List<Integer> numbers, int correctSize) {

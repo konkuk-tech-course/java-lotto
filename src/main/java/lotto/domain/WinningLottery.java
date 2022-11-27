@@ -2,7 +2,7 @@ package lotto.domain;
 
 import lotto.constant.LotteryRank;
 import lotto.domain.constant.DomainErrorMessage;
-import lotto.domain.constant.LottoProperties;
+import lotto.domain.constant.LottoNumberProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class WinningLottery {
 
     private void validate(BonusNumber bonusNumber, Lotto winningNumbers) {
         List<Integer> numbersIncludingBonus = createNumberListIncludingBonus(bonusNumber, winningNumbers);
-        if (DomainValidator.hasSameNumber(numbersIncludingBonus, LottoProperties.SIZE_WITH_BONUS_NUMBER.get())) {
+        if (DomainValidator.hasSameNumber(numbersIncludingBonus, LottoNumberProperties.SIZE_WITH_BONUS_NUMBER.get())) {
             throw new IllegalArgumentException(DomainErrorMessage.DUPLICATE_NUMBERS_WITH_BONUS.get());
         }
     }

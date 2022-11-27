@@ -1,7 +1,7 @@
 package lotto.domain;
 
 import lotto.domain.constant.DomainErrorMessage;
-import lotto.domain.constant.LottoProperties;
+import lotto.domain.constant.LottoNumberProperties;
 
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +23,7 @@ public class Lotto {
             throw new IllegalArgumentException(DomainErrorMessage.INVALID_RANGE.get());
         }
 
-        if (DomainValidator.hasSameNumber(numbers, LottoProperties.SIZE.get())) {
+        if (DomainValidator.hasSameNumber(numbers, LottoNumberProperties.SIZE.get())) {
             throw new IllegalArgumentException(DomainErrorMessage.DUPLICATED_NUMBERS.get());
         }
     }

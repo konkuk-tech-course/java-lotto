@@ -1,6 +1,6 @@
 package lotto.domain.constant;
 
-public enum LottoProperties {
+public enum LottoNumberProperties {
     SIZE(6),
     SIZE_WITH_BONUS_NUMBER(7),
     MIN_NUMBER(1),
@@ -8,7 +8,7 @@ public enum LottoProperties {
 
     private final int property;
 
-    LottoProperties(int property) {
+    LottoNumberProperties(int property) {
         this.property = property;
     }
 
