@@ -35,7 +35,11 @@ public class LotteryService {
         return new WinningLottery(bonus, winningNumbers);
     }
 
-    public Map<LotteryRank, Integer> createResult(User user, WinningLottery winningLottery) {
-        LotteryResult lotteryResult = new LotteryResult();
+    public LotteryResult createResult(User user, WinningLottery winningLottery) {
+        LotteryResult lotteryResult = new LotteryResult("id");
+        user.createTicketsInfo().stream()
+                .map(winningLottery::evaluate)
+                .forEach(lotteryResult::add);
+        return lotteryResult;
     }
 }
