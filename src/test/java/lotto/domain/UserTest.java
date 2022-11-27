@@ -28,4 +28,16 @@ public class UserTest {
         user.buyTicket(ticket);
         assertThat(user.getNumberOfTickets()).isEqualTo(1);
     }
+
+    @Test
+    void createTicketsInfoTest() {
+        Lotto secondTicket = new Lotto(List.of(1, 2, 3, 4, 5, 7));
+        user.buyTicket(ticket);
+        user.buyTicket(secondTicket);
+        List<List<Integer>> info = List.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                List.of(1, 2, 3, 4, 5, 7)
+        );
+        assertThat(user.createTicketsInfo()).isEqualTo(info);
+    }
 }
