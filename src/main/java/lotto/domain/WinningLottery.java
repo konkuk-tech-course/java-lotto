@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.constant.LotteryRank;
 import lotto.domain.constant.DomainErrorMessage;
 import lotto.domain.constant.LottoProperties;
 
@@ -27,6 +28,21 @@ public class WinningLottery {
         List<Integer> numbersIncludingBonus = new ArrayList<>(winningNumbers.getNumbers());
         numbersIncludingBonus.add(bonusNumber.getNumber());
         return numbersIncludingBonus;
+    }
+
+    public LotteryRank evaluate(List<Integer> lotteryNumbers) {
+        int numberOfMatches = calculateNumberOfMatches(lotteryNumbers);
+        boolean hasBonusNumber = containsBonusNumber(lotteryNumbers);
+        return LotteryRank.find(numberOfMatches, hasBonusNumber);
+    }
+
+    private int calculateNumberOfMatches(List<Integer> lotteryNumbers) {
+        return (int) lotteryNumbers.stream().filter(winningNumbers.getNumbers()::contains)
+                .count();
+    }
+
+    private boolean containsBonusNumber(List<Integer> lotteryNumbers) {
+        return lotteryNumbers.contains(bonusNumber.getNumber());
     }
 
     public int getBonusNumber() {
