@@ -1,12 +1,11 @@
 package lotto.service;
 
+import lotto.constant.LotteryRank;
 import lotto.controller.LotteryController;
-import lotto.domain.BonusNumber;
-import lotto.domain.Lotto;
-import lotto.domain.User;
-import lotto.domain.WinningLottery;
+import lotto.domain.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class LotteryService {
     private static LotteryService instance = new LotteryService();
@@ -34,5 +33,9 @@ public class LotteryService {
         Lotto winningNumbers = new Lotto(numbers);
         BonusNumber bonus = new BonusNumber(bonusNumber);
         return new WinningLottery(bonus, winningNumbers);
+    }
+
+    public Map<LotteryRank, Integer> createResult(User user, WinningLottery winningLottery) {
+        LotteryResult lotteryResult = new LotteryResult();
     }
 }
