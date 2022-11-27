@@ -23,6 +23,6 @@ public class LotteryService {
     }
 
     private Lotto createTicket() {
-        return new Lotto(LottoNumberGenerator.generate())
+        return new Lotto(LottoNumberGenerator.generate());
     }
 }
