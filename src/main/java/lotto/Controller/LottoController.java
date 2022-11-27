@@ -16,7 +16,7 @@ public class LottoController {
     Calculated calculated = new Calculated();
     AutoLotto autoLotto = new AutoLotto();
     RankLogic rankLogic = new RankLogic();
-    List<Integer> winningLottoTicket = new ArrayList<>();
+    static List<Integer> winningLottoTicket = new ArrayList<>();
     int bonusNumber;
 
     public LottoController(InputView inputView, OutputView outputView) {
@@ -29,11 +29,11 @@ public class LottoController {
         List<Lotto> autoLottos = autoLotto.pickAutoLotto(calculated.lottoAmount(userMoney));
         winningLottoTicket = inputView.winningLottoTicket();
         int bonus = inputView.bonusNumber();
-        rankLogic.matchCount(autoLottos, winningLottoTicket, bonus);
-
+        rankLogic.logicStart(autoLottos, winningLottoTicket, bonus);
+        calculated.calculateYield(userMoney,RankLogic.rankMap);
     }
 
-    public List<Integer> getWinningLottoTicket() {
+    public static List<Integer> getWinningLottoTicket() {
         return winningLottoTicket;
     }
 }

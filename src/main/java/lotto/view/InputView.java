@@ -14,10 +14,12 @@ public class InputView {
     Validate validate = new Validate();
     OutputView outputView = new OutputView();
 
+    BonusNumber bonusNumber = new BonusNumber();
     WinningLotto win = new WinningLotto();
 
     List<Integer> winningLottoTicket = new ArrayList<>();
 
+    int bonusNum=0;
     public int payMoney() {
         try {
             outputView.printPayMoney();
@@ -47,11 +49,12 @@ public class InputView {
     public int bonusNumber() {
         try{
             String bonus = Console.readLine();
-            int bonusNum = Integer.parseInt(bonus);
-            BonusNumber.validate(bonusNum);
-
+            bonusNum = Integer.parseInt(bonus);
+            bonusNumber.validate(bonusNum);
         }catch (IllegalArgumentException e){
             outputView.printError(e.getMessage());
+            return bonusNumber();
         }
+        return bonusNum;
     }
 }

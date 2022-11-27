@@ -37,6 +37,4 @@ public class Validate {
         }
         return convertNumber;
     }
-
-    public int validateBonusNumber()
 }
