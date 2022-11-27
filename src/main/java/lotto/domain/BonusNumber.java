@@ -15,4 +15,8 @@ public class BonusNumber {
             throw new IllegalArgumentException(DomainErrorMessage.INVALID_RANGE_BONUS_NUMBER.get());
         }
     }
+
+    public int getNumber() {
+        return number;
+    }
 }
