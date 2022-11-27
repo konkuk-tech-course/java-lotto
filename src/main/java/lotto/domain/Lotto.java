@@ -1,4 +1,5 @@
-package lotto;
+package lotto.domain;
+
 
 import java.util.List;
 
@@ -7,6 +8,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
+        rangeValidate(numbers);
         this.numbers = numbers;
     }
 
@@ -16,7 +18,17 @@ public class Lotto {
         }
     }
 
+    private void rangeValidate(List<Integer> numbers) {
+        for (Integer number : numbers) {
+            if(number < 1 || number > 45) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 
     // TODO: 추가 기능 구현
 }
