@@ -14,7 +14,7 @@ public class DomainValidator {
         return numbers.stream().anyMatch(DomainValidator::isInvalidRange);
     }
 
-    private static boolean isInvalidRange(int number) {
+    public static boolean isInvalidRange(int number) {
         return number < LottoProperties.MIN_NUMBER.get()
                 && number > LottoProperties.MAX_NUMBER.get();
     }
