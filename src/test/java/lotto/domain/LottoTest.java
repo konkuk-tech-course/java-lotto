@@ -30,10 +30,10 @@ class LottoTest {
 
     @Test
     void When_createLottoByInvalidRange_Expect_IllegalArgumentException() {
-        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 6, 7)))
+        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 46, 10)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR]")
-                .hasMessageContaining("6개의 숫자여야");
+                .hasMessageContaining("1부터 45까지");
     }
 
 }
