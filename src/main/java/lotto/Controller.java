@@ -40,18 +40,12 @@ public class Controller {
     }
 
     void play() {
-        output.printMoney();
-        String input = moneyInput.inputNumbers();
-        int inputMoney = moneyInput.parseInt(input);
+        int inputMoney = money();
 
-        money = new Money(inputMoney);
-        int count = money.count(inputMoney);
+        int count = count(inputMoney);
         output.printCount(count);
-
         publish = new Publish(count);
-
         List<List<Integer>> list = publish.publishNumbers(count);
-
         output.printLottos(list);
 
         output.printLottoNumber();
@@ -75,6 +69,18 @@ public class Controller {
         output.printRate(rate);
 
     }
+
+    private int money() {
+        output.printMoney();
+        String input = moneyInput.inputNumbers();
+        return moneyInput.parseInt(input);
+    }
+
+    private int count(int inputMoney) {
+        money = new Money(inputMoney);
+        return money.count(inputMoney);
+    }
+
 
 
 
