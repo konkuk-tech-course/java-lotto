@@ -9,7 +9,7 @@ public class OutputView {
 
 
     public static void printStatisTics(double v) {
-        System.out.println(OutputConstant.GAME_STATISTIC_ANNONUNCE);
+        System.out.println(OutputConstant.GAME_STATISTIC_ANNONUNCE.message());
         System.out.println(Ranking.RANK_5.getSame() + "개 일치 (5,000원) - " + RankLogic.rankMap.get(Ranking.RANK_5) + "개");
         System.out.println(Ranking.RANK_4.getSame() + "개 일치 (50,000원) - " + RankLogic.rankMap.get(Ranking.RANK_4) + "개");
         System.out.println(Ranking.RANK_3.getSame() + "개 일치 (1,500,000원) - " + RankLogic.rankMap.get(Ranking.RANK_3) + "개");
