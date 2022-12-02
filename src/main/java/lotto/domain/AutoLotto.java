@@ -10,8 +10,7 @@ import lotto.view.OutputView;
 public class AutoLotto {
 
     public static List<Lotto> autoLottos = new ArrayList<>();
-    OutputView outputView = new OutputView();
-    public List<Lotto> pickAutoLotto(int lottoAmount){
+    public List<Lotto> pickAutoLotto(int lottoAmount, OutputView outputView){
         for(int index=0; index<lottoAmount; index++){
             List<Integer> pickLotto = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
             Collections.sort(pickLotto);

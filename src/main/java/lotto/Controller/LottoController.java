@@ -32,7 +32,7 @@ public class LottoController {
 
     public void run() {
         int userMoney = payInput();
-        List<Lotto> autoLottos = autoLotto.pickAutoLotto(calculated.lottoAmount(userMoney));
+        List<Lotto> autoLottos = autoLotto.pickAutoLotto(calculated.lottoAmount(userMoney), outputView);
         winningLottoTicket = winningLottoTicket();
         int bonus = bonusInput();
         rankLogic.logicStart(autoLottos, winningLottoTicket, bonus);
