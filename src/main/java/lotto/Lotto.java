@@ -29,5 +29,11 @@ public class Lotto {
     private void sortNumber(List<Integer> numbers) {
         Collections.sort(numbers, Comparator.naturalOrder());
     }
+    @Override
+    public String toString() {
+        return numbers.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(DELIMITER, PREFIX, SUFFIX));
+    }
 
 }
