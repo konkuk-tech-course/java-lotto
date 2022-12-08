@@ -10,11 +10,7 @@ public class InputView {
     public static final int UNIT = 1_000;
     public static final int LOTTO_SIZE = 6;
 
-    private final WinningNumber winningNumber;
-
-    public InputView(WinningNumber winningNumber) {
-        this.winningNumber = winningNumber;
-    }
+    private final WinningNumber winningNumber = new WinningNumber();
 
     public int readMoney() {
         System.out.println("구입금액을 입력해 주세요.");
