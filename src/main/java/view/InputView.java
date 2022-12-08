@@ -1,7 +1,7 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.WinningNumber;
+import domain.WinningNumber;
 import utils.Util;
 
 import java.util.List;
