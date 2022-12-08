@@ -30,3 +30,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+## remove unnecessary files & directories
+/gradle
+gradle*
+settings.gradle
