@@ -1,11 +1,12 @@
 package lotto;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Lotto {
+public class Lotto{
     private static final String DELIMITER = ", ";
     private static final String PREFIX = "[";
     private static final String SUFFIX = "]";
@@ -29,6 +30,12 @@ public class Lotto {
     private void sortNumber(List<Integer> numbers) {
         Collections.sort(numbers, Comparator.naturalOrder());
     }
+
+    public int matchCount(Lotto lotto) {
+        List<Integer> commonNumber = new ArrayList<>(numbers);
+        numbers.retainAll(lotto.numbers);
+        return commonNumber.size();
+    }
     @Override
     public String toString() {
         return numbers.stream()
@@ -36,4 +43,7 @@ public class Lotto {
                 .collect(Collectors.joining(DELIMITER, PREFIX, SUFFIX));
     }
 
+    public boolean contains(int bonusNumber) {
+        return numbers.contains(bonusNumber);
+    }
 }
