@@ -2,14 +2,15 @@ package view;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.WinningNumber;
+import lotto.Lotto;
 import utils.Util;
 
+import java.util.Collections;
 import java.util.List;
 
 public class InputView {
     public static final int UNIT = 1_000;
     public static final int LOTTO_SIZE = 6;
-
     private final WinningNumber winningNumber = new WinningNumber();
 
     public int readMoney() {
@@ -24,20 +25,24 @@ public class InputView {
     }
 
     private void checkUnit(int remainder) {
-        if (remainder != 0 ) throw new IllegalArgumentException("[ERROR] 1,000 단위로 입력해야 합니다.");
+        if (remainder != 0) throw new IllegalArgumentException("[ERROR] 1,000 단위로 입력해야 합니다.");
     }
 
-    public List<Integer> readWinningNumbers() {
+    public Lotto readWinningNumbers() {
         // 의문 1. 이렇게 Winningnumber에 저장해도되나? (이름에서 반환한다는 말이 없으니 그냥 숫자 리스트로 반환..)
         System.out.println("당첨 번호를 입력해 주세요.");
         List<Integer> winningNumbers = Util.convertStringToList(Console.readLine());
         validateWinningNumbers(winningNumbers);
-        return winningNumbers;
+        return new Lotto(winningNumbers);
+    }
+
+    private void sortWinningNumber(List<Integer> winningNumbers) {
+        Collections.sort(winningNumbers);
     }
 
 
     private void validateWinningNumbers(List<Integer> winningNumbers) {
-        checkWinningNumberSize(winningNumbers);
+        checkWinningNumberSize(winningNumbers); // 로또에 넘길거면 필요 없음
         checkWinningNumberRange(winningNumbers);
         checkDuplicateNumber(winningNumbers);
     }
@@ -85,7 +90,7 @@ public class InputView {
 
     //TODO
     private void isDuplicateNumberWithWinningNumbers(int bonusNumber) {
-        List<Integer> winningNumbers = winningNumber.getWinningNumbers();
+        Lotto winningNumbers = winningNumber.getWinningNumbers();
         if (winningNumbers.contains(bonusNumber)) {
             throw new IllegalArgumentException("[ERROR] 중복된 수는 보너스 넘버가 될 수 없습니다");
         }
