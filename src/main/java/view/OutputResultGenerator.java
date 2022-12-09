@@ -64,9 +64,11 @@ public class OutputResultGenerator {
         matchedLotteryNum.put(Rank.SECOND, secondWinnerCount);
     }
 
-
-
-
+    public void calculateWinningMoney() {
+        for (Map.Entry<Rank, Integer> rankIntegerEntry : matchedLotteryNum.entrySet()) {
+            totalWonMoney += rankIntegerEntry.getKey().getWinningMoney() * rankIntegerEntry.getValue();
+        }
+    }
 
     public String makeResult() {
         StringBuilder stringBuilder = new StringBuilder();
